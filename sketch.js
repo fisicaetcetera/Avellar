@@ -1,4 +1,4 @@
-///Dropbox/local-server/Ellada/Greece-master
+///Dropbox/local-server/ZHONG_GUÓ/zhong_guo_master
 var imageUrl;
 var latuser;
 var lonuser;
@@ -17,7 +17,6 @@ var icone = L.icon({
   shadowAnchor: [2, 94], // the same for the shadow
   popupAnchor: [0, -79] // point from which the popup should open relative to the iconAnchor
 })
-
 function setup() {
 
   noCanvas();
@@ -83,7 +82,7 @@ function setup() {
 var latlngsIda = [
     [-5.759290, -35.368370], //Natal
     [-23.454, -46.534096], // Sao Paulo
-    [25.252777, 55.364445], //Dubai airport
+    [25.276987, 55.296249], //Dubai
     [1.359167, 103.989441], //Singapore
     [40.072498,116.597504],  // Beijing
     [34.274342, 108.889191],  //  Xian
@@ -105,7 +104,7 @@ map.fitBounds(polylineIda.getBounds());
         [-5.759290, -35.368370] //Natal
     ];
   
-  var polylineVolta = L.polyline(latlngsVolta, {color: 'yellow'}).addTo(map);
+  var polylineVolta = L.polyline(latlngsVolta, {color: 'green'}).addTo(map);
 // zoom the map to the polyline
 map.fitBounds(polylineVolta.getBounds()); 
   
@@ -129,7 +128,7 @@ map.fitBounds(polylineVolta.getBounds());
               accuracy = posicao.accuracy;
                L.marker(latlonuser).addTo(map).bindPopup("Você!<br>Latitude: " +latuser+"<br> Longitude: "+ lonuser).openPopup();
               L.circle(latlonuser, accuracy).addTo(map);
-              map.setView(latlonuser, 4); // ([latuser, lonuser], zoom)
+              map.setView(latlonuser, 3); // ([latuser, lonuser], zoom)
             });
              } else {  
               localizacao = false;
@@ -148,21 +147,34 @@ map.fitBounds(polylineVolta.getBounds());
     .bindPopup('SÃO PAULO <BR> dia 11/9 ,<br> Retorno: dia 30 ')
     .openPopup();
     
+   //BURJ KHALIFA 
+  ///L.marker([]).addTo(map)
+   /// .bindPopup('Burj Khalifa, dia 12')
+   // .openPopup();
+   var imageUrl = './burj_Khalifa.jpg',
+    imageBounds = [[25.197197, 55.272594], [29,59]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
+     
   // DUBAI
   L.marker(latlngsIda[2]).addTo(map)
     .bindPopup('DUBAI <BR> dias 11 a 13 ')
     .openPopup();
-
-  //ATENAS
-
+ 
   L.marker(latlngsIda[3]).addTo(map)
-    .bindPopup('CINGAPURA  <BR> dias 13 a 16')
-    .openPopup();
-    
-     // MILOS
-  L.marker(latlngsIda[4]).addTo(map)
-    .bindPopup('PEQUIM: diaS 16 A 19')
+    .bindPopup('CINGAPURA<BR> dias 14 A 16')
     .openPopup(); 
+   //Sri Marianman
+      var imageUrl = './sri_Marianman.jpg',
+    imageBounds = [ [1.359167, 103.989441], [5,109]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map); 
+
+  L.marker(latlngsIda[4]).addTo(map)
+    .bindPopup('PEQUIM <BR> dias 16 A 19')
+    .openPopup();
+   //Beijing Summer Palace
+      var imageUrl = './Summer-Palace-Beijing-728x410.jpg',
+    imageBounds = [ [40.072498,116.597504], [43,121]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map);     
 
   //XIAN
 
@@ -189,3 +201,6 @@ map.fitBounds(polylineVolta.getBounds());
     .openPopup();
   
 } //setup
+
+//falta: ver porque alguns icones desaparecem : xian, etc.
+//Colocar natal e são gonçalo na linha de ida e volta.
