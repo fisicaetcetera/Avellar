@@ -128,7 +128,7 @@ map.fitBounds(polylineVolta.getBounds());
               accuracy = posicao.accuracy;
                L.marker(latlonuser).addTo(map).bindPopup("Você!<br>Latitude: " +latuser+"<br> Longitude: "+ lonuser).openPopup();
               L.circle(latlonuser, accuracy).addTo(map);
-              map.setView(latlonuser, 0); // ([latuser, lonuser], zoom)
+              map.setView(latlonuser, 2); // ([latuser, lonuser], zoom)
             });
              } else {  
               localizacao = false;
