@@ -199,7 +199,9 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
   L.marker(latlngsIda[8]).addTo(map)
     .bindPopup('TOKYO : dias 26 a 30')
     .openPopup();
-  
+  map.on('click', function(ev) {
+    //alert(ev.latlng); // ev is an event object (MouseEvent in this case)
+              map.setView(ev.latlng, 8); // ([latuser, lonuser], zoom)
 } //setup
 
 //falta: ver porque alguns icones desaparecem : xian, etc.
