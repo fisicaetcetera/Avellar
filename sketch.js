@@ -202,6 +202,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
   map.on('click', function(ev) {
     //alert(ev.latlng); // ev is an event object (MouseEvent in this case)
               map.setView(ev.latlng, 8); // ([latuser, lonuser], zoom)
+  });
 } //setup
 
 //falta: ver porque alguns icones desaparecem : xian, etc.
