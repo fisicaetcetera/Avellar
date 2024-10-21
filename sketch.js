@@ -7,7 +7,6 @@ var lontxt;
 var latlonuser;
 var accuracy;
 
-
 var icone = L.icon({
   iconUrl: './marker-icon.png',
   shadowUrl: './marker-shadow.png',
@@ -22,7 +21,7 @@ function setup() {
   noCanvas();
 
   //=====localização
-  
+
   var map = L.map('mapid');
   
   map.locate({
@@ -181,6 +180,11 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
   L.marker(latlngsIda[5]).addTo(map)
     .bindPopup('XIAN<BR> dias 19 A 21')
     .openPopup();
+      //Xian Terra cota warriors
+      var imageUrl = './guerreiros_de_terra_cota.png',
+    imageBounds = [ [34.274342, 108.889191], [35.5,113]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map);     
+
 
   // SHANGHAI
 
@@ -199,11 +203,15 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
   L.marker(latlngsIda[8]).addTo(map)
     .bindPopup('TOKYO : dias 26 a 30')
     .openPopup();
+    
   map.on('click', function(ev) {
     //alert(ev.latlng); // ev is an event object (MouseEvent in this case)
               map.setView(ev.latlng, 8); // ([latuser, lonuser], zoom)
-  });
+   });
+  
 } //setup
 
-//falta: ver porque alguns icones desaparecem : xian, etc.
 //Colocar natal e são gonçalo na linha de ida e volta.
+
+
+
