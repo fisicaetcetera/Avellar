@@ -191,6 +191,10 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
   L.marker(latlngsIda[6]).addTo(map)
     .bindPopup('SHANGHAI : dias 21 a 23')
     .openPopup();
+     //shanghai_jardim_Yu
+      var imageUrl = './shanghai_jardim_Yu_540 × 312.jpg',
+    imageBounds = [ [31.22222, 121.45806], [33.5,125.5]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map); 
     
   // SEUL
 
