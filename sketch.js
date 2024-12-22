@@ -29,7 +29,7 @@ function setup() {
     maxZoom: 12
   });
 
-  map.setView([-6,-35],5);
+  //map.setView([-6,-35],5);
   //map.on('locationfound', onLocationFound);
 
 
@@ -128,7 +128,7 @@ map.fitBounds(polylineVolta.getBounds());
                L.marker(latlonuser).addTo(map).bindPopup("Você!<br>Latitude: " +latuser+"<br> Longitude: "+ lonuser).openPopup();
               L.circle(latlonuser, accuracy).addTo(map);
               //map.setView(latlonuser, 8); // ([latuser, lonuser], zoom)
-              map.locate({setView: true, maxZoom: 16});
+              map.locate({setView: true, maxZoom: 8});
             });
              } else {  
               localizacao = false;
