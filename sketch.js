@@ -29,10 +29,6 @@ function setup() {
     maxZoom: 12
   });
 
-  //map.setView([-6,-35],5);
-  //map.on('locationfound', onLocationFound);
-
-
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
@@ -128,7 +124,7 @@ map.fitBounds(polylineVolta.getBounds());
                L.marker(latlonuser).addTo(map).bindPopup("Você!<br>Latitude: " +latuser+"<br> Longitude: "+ lonuser).openPopup();
               L.circle(latlonuser, accuracy).addTo(map);
               //map.setView(latlonuser, 8); // ([latuser, lonuser], zoom)
-              map.locate({setView: true, maxZoom: 8});
+              map.locate({setView: true, maxZoom: 16});
             });
              } else {  
               localizacao = false;
