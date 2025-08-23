@@ -10,7 +10,7 @@ var accuracy;
 var icone = L.icon({
   iconUrl: './marker-icon.png',
   shadowUrl: './marker-shadow.png',
-  iconSize: [18, 95], // size of the icon
+  iconSize: [6, 30], // size of the icon
   shadowSize: [20, 95], // size of the shadow
   iconAnchor: [9, 94], // point of the icon which will correspond to marker's location
   shadowAnchor: [2, 94], // the same for the shadow
@@ -28,6 +28,10 @@ function setup() {
     setView: true,
     maxZoom: 12
   });
+
+  map.setView([-6,-35],5);
+  //map.on('locationfound', onLocationFound);
+
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -83,6 +87,8 @@ var latlngsIda = [
     [34.274342, 108.889191],  //  Xian
     [31.22222, 121.45806],  // Shanghai
     [37.5657, 126.978], //Seul
+    [34.672314, 135.484802], //Osaka
+    [35.011665, 135.768326], //Kioto
     [35.6895, 139.69171] //Tokyo
 ];
 var polylineIda = L.polyline(latlngsIda, {color: 'blue'}).addTo(map);
@@ -121,10 +127,9 @@ map.fitBounds(polylineVolta.getBounds());
               //const speed = posicao.speed.toString();
               //const heading = posicao.heading.toString();
               accuracy = posicao.accuracy;
-               L.marker(latlonuser).addTo(map).bindPopup("Você!<br>Latitude: " +latuser+"<br> Longitude: "+ lonuser).openPopup();
+               L.marker(latlonuser).addTo(map).bindPopup("Você está Aqui!<br>Latitude: " +latuser+"<br> Longitude: "+ lonuser).openPopup();
               L.circle(latlonuser, accuracy).addTo(map);
-              //map.setView(latlonuser, 8); // ([latuser, lonuser], zoom)
-              map.locate({setView: true, maxZoom: 16});
+              map.setView(latlonuser, 4); // ([latuser, lonuser], zoom)
             });
              } else {  
               localizacao = false;
@@ -136,11 +141,11 @@ map.fitBounds(polylineVolta.getBounds());
   //=============================================================
 
   L.marker(latlngsIda[0]).addTo(map)
-    .bindPopup('SÃO GONÇALO <BR> dia 10/9 ,<br> Retorno: dia 30 ')
+    .bindPopup('SÃO GONÇALO <BR> dia 09/9 (10:00-12:50)<br> GOL G3 1541 <br> Retorno: dia 02/10 (1:55)')
     .openPopup();
     
   L.marker(latlngsIda[1]).addTo(map)
-    .bindPopup('SÃO PAULO <BR> dia 11/9 ,<br> Retorno: dia 30 ')
+    .bindPopup('SÃO PAULO <BR> dia 09/9 (16:20-01:00+1) ,<br> Retorno: dia 01/10 (17:40)')
     .openPopup();
     
    //BURJ KHALIFA 
@@ -153,19 +158,21 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
      
   // DUBAI
   L.marker(latlngsIda[2]).addTo(map)
-    .bindPopup('DUBAI <BR> dias 11 a 13 ')
+    .bindPopup('DUBAI <BR> dia 12 (00:00) a 13 (10:05) ')
     .openPopup();
- 
+    
+ //CINGAPURA
   L.marker(latlngsIda[3]).addTo(map)
-    .bindPopup('CINGAPURA<BR> dias 14 A 16')
+    .bindPopup('CINGAPURA<BR> dias 13(21:45) A 16 (16:40)<br> SQ 806')
     .openPopup(); 
    //Sri Marianman
       var imageUrl = './sri_Marianman.jpg',
     imageBounds = [ [1.359167, 103.989441], [5,109]];
 L.imageOverlay(imageUrl, imageBounds).addTo(map); 
 
+//PEQUIM
   L.marker(latlngsIda[4]).addTo(map)
-    .bindPopup('PEQUIM <BR> dias 16 A 19')
+    .bindPopup('PEQUIM <BR> dias 16 (23:00) A 19 (à tarde, de trem para Xian)')
     .openPopup();
    //Beijing Summer Palace
       var imageUrl = './Summer-Palace-Beijing-728x410.jpg',
@@ -173,9 +180,8 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 L.imageOverlay(imageUrl, imageBounds).addTo(map);     
 
   //XIAN
-
   L.marker(latlngsIda[5]).addTo(map)
-    .bindPopup('XIAN<BR> dias 19 A 21')
+    .bindPopup('XIAN<BR> dias 19 (s/horário) A 21 (sem horário)')
     .openPopup();
       //Xian Terra cota warriors
       var imageUrl = './guerreiros_de_terra_cota.png',
@@ -186,7 +192,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
   // SHANGHAI
 
   L.marker(latlngsIda[6]).addTo(map)
-    .bindPopup('SHANGHAI : dias 21 a 23')
+    .bindPopup('SHANGHAI : dias 21 (sem horário) a 23 ()')
     .openPopup();
      //shanghai_jardim_Yu
       var imageUrl = './shanghai_jardim_Yu_540 × 312.jpg',
@@ -196,19 +202,30 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
   // SEUL
 
   L.marker(latlngsIda[7]).addTo(map)
-    .bindPopup('SEUL : dias 23 a 26')
+    .bindPopup('SEUL : dias 23 a 26 (08:10)<br> Asiana OZ 1145 <BR> Destino: Osaka')
     .openPopup();
-
+      
+  //OSAKA
+  L.marker(latlngsIda[8]).addTo(map)
+    .bindPopup('OSAKA : dia 26 A 27<BR> TREM? para Kioto' )
+    .openPopup();
+  
+  //KIOTO
+  // Kyoto, Japan, 35.011665, 135.768326 
+  //SAI DE TREM PARA TOKIO DIA 27
+  L.marker(latlngsIda[9]).addTo(map)
+    .bindPopup('KIOTO : dia 26 A 27<BR> TREM para Tokio' )
+    .openPopup();
   // TOKYO
 
-  L.marker(latlngsIda[8]).addTo(map)
-    .bindPopup('TOKYO : dias 26 a 30')
+  L.marker(latlngsIda[10]).addTo(map)
+    .bindPopup('TOKYO <BR> dias 27 (09:45) a 30 (22:30)<br> Emirates EK 319')
     .openPopup();
     
-  map.on('click', function(ev) {
+//  map.on('click', function(ev) {
     //alert(ev.latlng); // ev is an event object (MouseEvent in this case)
-              map.setView(ev.latlng, 8); // ([latuser, lonuser], zoom)
-   });
+             // map.setView(ev.latlng, 4); // ([latuser, lonuser], zoom)
+ //  });
   
 } //setup
 
