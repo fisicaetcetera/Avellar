@@ -145,7 +145,7 @@ map.fitBounds(polylineVolta.getBounds());
     .openPopup();
     
   L.marker(latlngsIda[1]).addTo(map)
-    .bindPopup('SÃO PAULO <BR> dia 09/9 (16:20-01:00+1) ,<br> Retorno: dia 01/10 (17:40)')
+    .bindPopup('SÃO PAULO <BR> dia 09/9 (16:20) <BR> IDA PARA DUBAI: dia 10/09 01:00, EMIRATES EK 262,<br> VOLTA: dia 02/10 (17:40)')
     .openPopup();
     
    //BURJ KHALIFA 
@@ -158,7 +158,12 @@ map.fitBounds(polylineVolta.getBounds());
      
   // DUBAI
   L.marker(latlngsIda[2]).addTo(map)
-    .bindPopup('DUBAI <BR> dia 12 (00:00) a 13 (10:05) ')
+    .bindPopup('DUBAI    <BR> dia 10 (23:00) <BR> Parte para CINGAPURA (Emirates EK 352): dia 13 (10:05) ')
+    .openPopup();
+    
+  // BURJ KHALIFA
+  L.marker([25.134415, 55.245258]).addTo(map)
+    .bindPopup('BURJ KHALIFA, dia 12/09) ')
     .openPopup();
     
  //CINGAPURA
