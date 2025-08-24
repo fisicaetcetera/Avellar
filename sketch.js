@@ -152,9 +152,9 @@ map.fitBounds(polylineVolta.getBounds());
   ///L.marker([]).addTo(map)
    /// .bindPopup('Burj Khalifa, dia 12')
    // .openPopup();
-   var imageUrl = './burj_Khalifa.jpg',
-    imageBounds = [[25.197197, 55.272594], [29,59]];
-L.imageOverlay(imageUrl, imageBounds).addTo(map);
+   //var imageUrl = './burj_Khalifa.jpg',
+   // imageBounds = [[25.197197, 55.272594], [25.6,55.12]];
+//L.imageOverlay(imageUrl, imageBounds).addTo(map);
      
   // DUBAI
   L.marker(latlngsIda[2]).addTo(map)
@@ -166,27 +166,27 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
     .bindPopup('CINGAPURA<BR> dias 13(21:45) A 16 (16:40)<br> SQ 806')
     .openPopup(); 
    //Sri Marianman
-      var imageUrl = './sri_Marianman.jpg',
-    imageBounds = [ [1.359167, 103.989441], [5,109]];
-L.imageOverlay(imageUrl, imageBounds).addTo(map); 
+      //var imageUrl = './sri_Marianman.jpg',
+    //imageBounds = [ [1.359167, 103.989441], [5,109]];
+//L.imageOverlay(imageUrl, imageBounds).addTo(map); 
 
 //PEQUIM
   L.marker(latlngsIda[4]).addTo(map)
     .bindPopup('PEQUIM <BR> dias 16 (23:00) A 19 (à tarde, de trem para Xian)')
     .openPopup();
    //Beijing Summer Palace
-      var imageUrl = './Summer-Palace-Beijing-728x410.jpg',
-    imageBounds = [ [40.072498,116.597504], [43,121]];
-L.imageOverlay(imageUrl, imageBounds).addTo(map);     
+     // var imageUrl = './Summer-Palace-Beijing-728x410.jpg',
+   // imageBounds = [ [40.072498,116.597504], [43,121]];
+//L.imageOverlay(imageUrl, imageBounds).addTo(map);     
 
   //XIAN
   L.marker(latlngsIda[5]).addTo(map)
     .bindPopup('XIAN<BR> dias 19 (s/horário) A 21 (sem horário)')
     .openPopup();
       //Xian Terra cota warriors
-      var imageUrl = './guerreiros_de_terra_cota.png',
-    imageBounds = [ [34.274342, 108.889191], [35.5,113]];
-L.imageOverlay(imageUrl, imageBounds).addTo(map);     
+      //var imageUrl = './guerreiros_de_terra_cota.png',
+   // imageBounds = [ [34.274342, 108.889191], [35.5,113]];
+//L.imageOverlay(imageUrl, imageBounds).addTo(map);     
 
 
   // SHANGHAI
@@ -195,9 +195,9 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
     .bindPopup('SHANGHAI : dias 21 (sem horário) a 23 ()')
     .openPopup();
      //shanghai_jardim_Yu
-      var imageUrl = './shanghai_jardim_Yu_540 × 312.jpg',
-    imageBounds = [ [31.22222, 121.45806], [33.5,125.5]];
-L.imageOverlay(imageUrl, imageBounds).addTo(map); 
+     // var imageUrl = './shanghai_jardim_Yu_540 × 312.jpg',
+    //imageBounds = [ [31.22222, 121.45806], [33.5,125.5]];
+//L.imageOverlay(imageUrl, imageBounds).addTo(map); 
     
   // SEUL
 
