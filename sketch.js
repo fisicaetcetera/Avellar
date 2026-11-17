@@ -140,8 +140,8 @@ map.fitBounds(polylineVolta.getBounds());
               //const speed = posicao.speed.toString();
               //const heading = posicao.heading.toString();
               accuracy = posicao.accuracy;
-               L.marker(latlonuser).addTo(map).bindPopup("Você está Aqui!<br>Latitude: " +latuser+"<br> Longitude: "+ lonuser).openPopup();
-              L.circle(latlonuser, accuracy).addTo(map);
+              // L.marker(latlonuser).addTo(map).bindPopup("Você está Aqui!<br>Latitude: " +latuser+"<br> Longitude: "+ lonuser).openPopup();
+              //L.circle(latlonuser, accuracy).addTo(map);
               map.setView(latlonuser, 4); // ([latuser, lonuser], zoom)
             });
              } else {  
