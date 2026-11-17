@@ -16,6 +16,20 @@ var icone = L.icon({
   shadowAnchor: [2, 94], // the same for the shadow
   popupAnchor: [0, -79] // point from which the popup should open relative to the iconAnchor
 })
+var hanoi = L.icon({
+  iconUrl: 'hanoi-regina-mercia.jpeg',
+  iconSize: [150, 190], // size of the icon
+  shadowSize: [20, 95], // size of the shadow
+  iconAnchor: [0,190], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+})
+var hotelTryp = L.icon({
+  iconUrl: 'TRYP_DUBAI.jpg',
+  iconSize: [36,50], // size of the icon
+  shadowSize: [20, 95], // size of the shadow
+  iconAnchor: [18,50], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+})
 function setup() {
 
   noCanvas();
@@ -81,15 +95,15 @@ function setup() {
 var latlngsIda = [
     [-5.759290, -35.368370], //Natal
     [-23.454, -46.534096], // Sao Paulo
-    [25.276987, 55.296249], //Dubai
-    [1.359167, 103.989441], //Singapore
-    [40.072498,116.597504],  // Beijing
-    [34.274342, 108.889191],  //  Xian
-    [31.22222, 121.45806],  // Shanghai
-    [37.5657, 126.978], //Seul
-    [34.672314, 135.484802], //Osaka
-    [35.011665, 135.768326], //Kioto
-    [35.6895, 139.69171] //Tokyo
+    [25.2594, 51.5655], // Doha
+    [21.0245, 105.84117], //Hanoi
+    [16.0678, 108.2208], //Da Nang
+    [10.82302, 106.62965],  // Ho Chi Minh 
+    [13.36179, 103.86056],  // Siem Reap
+    [13.7563, 100.5018],  // Bangkok
+    [18.79038, 98.98468], // Chiang Mai
+    [3.140853, 101.693207], // Kuala Lumpur
+    [25.2594, 51.5655] // Doha
 ];
 var polylineIda = L.polyline(latlngsIda, {color: 'blue'}).addTo(map);
 // zoom the map to the polyline
@@ -99,8 +113,7 @@ map.fitBounds(polylineIda.getBounds());
     // TRAJETO DE VOLTA EM AMARELO  ---------------------------------------------------
    
   var latlngsVolta = [
-        [35.6895, 139.69171], //Tokyo.set
-        [25.252777, 55.364445], //Dubai airport
+        [25.2855, 51.5310], // Doha
         [-23.454, -46.534096], // Sao Paulo
         [-5.759290, -35.368370] //Natal
     ];
@@ -141,52 +154,68 @@ map.fitBounds(polylineVolta.getBounds());
   //=============================================================
 
   L.marker(latlngsIda[0]).addTo(map)
-    .bindPopup('SÃO GONÇALO <BR> dia 09/9 (10:00-12:50)<br> GOL G3 1541 <br> Retorno: dia 02/10 (1:55)')
+    .bindPopup('SÃO GONÇALO <BR> dia 09/nov <br> LATAM  <br> Retorno: dia 01/dez')
     .openPopup();
     
   L.marker(latlngsIda[1]).addTo(map)
-    .bindPopup('SÃO PAULO <BR> dia 09/9 (16:20) <BR> IDA PARA DUBAI: dia 10/09 01:00, EMIRATES EK 262,<br> VOLTA: dia 02/10 (17:40)')
+    .bindPopup('SÃO PAULO <BR> dia 09/nov 20:25 <BR> IDA PARA DOHA: dia 10/09 01:00, QATAR 780,<br> VOLTA: dia ...')
     .openPopup();
     
-   //BURJ KHALIFA 
-  ///L.marker([]).addTo(map)
-   /// .bindPopup('Burj Khalifa, dia 12')
-   // .openPopup();
-   //var imageUrl = './burj_Khalifa.jpg',
-   // imageBounds = [[25.197197, 55.272594], [25.6,55.12]];
-//L.imageOverlay(imageUrl, imageBounds).addTo(map);
-     
-  // DUBAI
+ //DOHA
   L.marker(latlngsIda[2]).addTo(map)
-    .bindPopup('DUBAI    <BR> dia 10 (23:00) <BR> Parte para CINGAPURA (Emirates EK 352): dia 13 (10:05) ')
+    .bindPopup('Doha: en passant, 20h25min')
     .openPopup();
     
-  // BURJ KHALIFA
-  L.marker([25.134415, 55.245258]).addTo(map)
-    .bindPopup('BURJ KHALIFA, dia 12/09) ')
-    .openPopup();
+// HANOI - só o pino, sem foto no ícone
+L.marker(latlngsIda[3]).addTo(map)
+  .bindPopup(
+    '<b>HANOI</b><br>' +
+    'dia 11/11 6:55 Imigração<br>' +
+    '<img src="hanoi-regina-mercia.jpeg" width="150" style="margin-top:5px">'
+  );
+  
+  
+  // DA NANG
+ L.marker(latlngsIda[4]).addTo(map)
+  .bindPopup(
+    '<b>DA NANG/HO IAN</b><br>' +
+    'Dia 16/11) <br>' +
+    '<img src="hoIan-regina.jpeg" width="150">'
+  );
+   
+   // HO CHI MINH
+L.marker(latlngsIda[5]).addTo(map)
+  .bindPopup(
+    '<b>HO CHI MINH (SAIGON)</b><br>' +
+    'Dia 16/11) <br>' +
+    '<img src="Notre_dame_saigon_wikipedia.jpg" width="150">'
+  );
+   
+// L.marker([25.0813, 55.1738], {icon: hotelTryp}).addTo(map)
+//   .bindPopup('Hotel Tryp')
+ //  .addTo(map);   
     
- //CINGAPURA
-  L.marker(latlngsIda[3]).addTo(map)
-    .bindPopup('CINGAPURA<BR> dias 13(21:45) A 16 (16:40)<br> SQ 806')
+ //Siem Reap
+  L.marker(latlngsIda[6]).addTo(map)
+    .bindPopup('Siem Reap<BR> 19/11 ')
     .openPopup(); 
    //Sri Marianman
       //var imageUrl = './sri_Marianman.jpg',
     //imageBounds = [ [1.359167, 103.989441], [5,109]];
 //L.imageOverlay(imageUrl, imageBounds).addTo(map); 
 
-//PEQUIM
-  L.marker(latlngsIda[4]).addTo(map)
-    .bindPopup('PEQUIM <BR> dias 16 (23:00) A 19 (à tarde, de trem para Xian)')
+//Ban Kok
+  L.marker(latlngsIda[7]).addTo(map)
+    .bindPopup('Ban kok <BR> 22/1')
     .openPopup();
    //Beijing Summer Palace
      // var imageUrl = './Summer-Palace-Beijing-728x410.jpg',
    // imageBounds = [ [40.072498,116.597504], [43,121]];
 //L.imageOverlay(imageUrl, imageBounds).addTo(map);     
 
-  //XIAN
-  L.marker(latlngsIda[5]).addTo(map)
-    .bindPopup('XIAN<BR> dias 19 (s/horário) A 21 (sem horário)')
+  //Chiang Mai
+  L.marker(latlngsIda[8]).addTo(map)
+    .bindPopup('Chiang Mai<BR> 25/11')
     .openPopup();
       //Xian Terra cota warriors
       //var imageUrl = './guerreiros_de_terra_cota.png',
@@ -194,37 +223,20 @@ map.fitBounds(polylineVolta.getBounds());
 //L.imageOverlay(imageUrl, imageBounds).addTo(map);     
 
 
-  // SHANGHAI
+  // Kuala Lumpur
 
-  L.marker(latlngsIda[6]).addTo(map)
-    .bindPopup('SHANGHAI : dias 21 (sem horário) a 23 ()')
+  L.marker(latlngsIda[9]).addTo(map)
+    .bindPopup('Kuala Lampur : 29/11')
     .openPopup();
      //shanghai_jardim_Yu
      // var imageUrl = './shanghai_jardim_Yu_540 × 312.jpg',
     //imageBounds = [ [31.22222, 121.45806], [33.5,125.5]];
 //L.imageOverlay(imageUrl, imageBounds).addTo(map); 
     
-  // SEUL
-
-  L.marker(latlngsIda[7]).addTo(map)
-    .bindPopup('SEUL : dias 23 a 26 (08:10)<br> Asiana OZ 1145 <BR> Destino: Osaka')
-    .openPopup();
-      
-  //OSAKA
-  L.marker(latlngsIda[8]).addTo(map)
-    .bindPopup('OSAKA : dia 26 A 27<BR> TREM? para Kioto' )
-    .openPopup();
-  
-  //KIOTO
-  // Kyoto, Japan, 35.011665, 135.768326 
-  //SAI DE TREM PARA TOKIO DIA 27
-  L.marker(latlngsIda[9]).addTo(map)
-    .bindPopup('KIOTO : dia 26 A 27<BR> TREM para Tokio' )
-    .openPopup();
-  // TOKYO
+  // Doha
 
   L.marker(latlngsIda[10]).addTo(map)
-    .bindPopup('TOKYO <BR> dias 27 (09:45) a 30 (22:30)<br> Emirates EK 319')
+    .bindPopup('Doha: 30/11, dia 01/12 volta ao Brasil')
     .openPopup();
     
 //  map.on('click', function(ev) {

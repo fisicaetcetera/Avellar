@@ -1,0 +1,15 @@
+icon burjkhalifa
+
+Marker icons in Leaflet are defined by L.Icon objects, which are passed as an option when creating markers. Let’s create a green leaf icon:
+
+var burjKhalifaIcon = L.icon({
+    iconUrl: 'BurjKhalifa.jpg',
+    iconSize:     [38, 95], // size of the icon
+    iconAnchor:   [38, 25], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+// Now putting a marker with this icon on a map is easy:
+
+L.marker([51.5, -0.09], {icon: burjKhalifaIcon}).addTo(map);
+
