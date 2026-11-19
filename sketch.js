@@ -1,4 +1,4 @@
-///Dropbox/local-server/ZHONG_GUÓ/zhong_guo_master
+///Dropbox/local-server/INDOCHINA/indochina_master
 var imageUrl;
 var latuser;
 var lonuser;
@@ -145,7 +145,13 @@ map.fitBounds(polylineVolta.getBounds());
               map.setView(latlonuser, 4); // ([latuser, lonuser], zoom)
             });
              } else {  
-              localizacao = false;
+             localizacao = true; 
+              latuser = 21.0245; 
+              lonuser = 105.84117;
+              lattxt = latuser.toString();
+              lontxt = lonuser.toString();
+              latlonuser = [21.0245, 105.84117]; //Hanoi
+              console.log(latuser,lonuser,latlonuser);
              } 
   console.log("115-just outside anonymous",latuser,lonuser,latlonuser);
 
