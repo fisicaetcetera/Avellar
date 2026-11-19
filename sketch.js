@@ -151,6 +151,7 @@ map.fitBounds(polylineVolta.getBounds());
               lattxt = latuser.toString();
               lontxt = lonuser.toString();
               latlonuser = [21.0245, 105.84117]; //Hanoi
+              map.setView(latlonuser, 4); // ([latuser, lonuser], zoom)
               console.log(latuser,lonuser,latlonuser);
              } 
   console.log("115-just outside anonymous",latuser,lonuser,latlonuser);
